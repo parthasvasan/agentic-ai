@@ -1,3 +1,4 @@
+from ast import List
 from dotenv import load_dotenv
 import os
 from openai import OpenAI
@@ -16,19 +17,19 @@ def validate_environment() -> bool:
 
     return True
 
-def get_system_prompt():
+def get_system_prompt() -> str:
     return """You are a helpful assistant"""
 
-def get_user_prompt():
+def get_user_prompt() -> str:
     return """What is the capital of France?"""
 
-def get_message():
+def get_message() -> List:
     return [
         {"role": "system", "content": get_system_prompt()},
         {"role": "user", "content": get_user_prompt()}
     ]
 
-def get_model():
+def get_model() -> str:
     return "gpt-4o-mini"
 
 def run_llm():
